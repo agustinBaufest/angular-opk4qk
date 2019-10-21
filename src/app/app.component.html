@@ -1,0 +1,13 @@
+<hello name="{{ name }}"></hello>
+<p>
+  <button (click)="OneGet()">One con Get()</button>
+  <button (click)="OneGetList()">One con GetList()</button>
+  <button (click)="AllGet1()">All con Get(1)</button>
+  <button (click)="AllGet2()">One con Get(2) parametro en el .one y Mapeado</button>
+  <button (click)="AllGet3()">All con Get(3) Mapeado</button>
+  <button (click)="AllGetListCon()">All con GetList()</button>
+  <button (click)="AllGetListSin()">All con GetList() Mapeando solo los datos que precisamos</button>
+  <button (click)="ClearData()">Clear</button>
+</p>
+
+<pre>{{ cuentas | json }}</pre>
