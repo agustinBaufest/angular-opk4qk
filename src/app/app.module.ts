@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 
 export function RestangularConfigFactory (RestangularProvider) {
-  RestangularProvider.setBaseUrl('https://my-json-server.typicode.com');
+  //RestangularProvider.setBaseUrl('https://my-json-server.typicode.com');
+  RestangularProvider.setBaseUrl('https://jsonplaceholder.typicode.com');
 }
 
 @NgModule({

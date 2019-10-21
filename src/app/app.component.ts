@@ -13,8 +13,8 @@ export class AppComponent implements OnInit {
 
   name = 'Todos';
   cuentas: Cuenta[] = [];
-  apiUrl = 'typicode/demo/posts';
-
+  //apiUrl = 'typicode/demo/posts';
+  apiUrl = 'posts';
   constructor(private restangular: Restangular) {}
   
   ngOnInit() {
@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
 
   AllGet1() {
     const observable1 = this.restangular.all(this.apiUrl).get(1);
+    console.log(observable1);
     const suscripcion1 = observable1.subscribe(data => {
         this.cuentas = data;
       });     
