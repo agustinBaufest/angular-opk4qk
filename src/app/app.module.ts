@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import {Service} from './service/service.ts';
 
 export function RestangularConfigFactory (RestangularProvider) {
   //RestangularProvider.setBaseUrl('https://my-json-server.typicode.com');
@@ -14,6 +15,7 @@ export function RestangularConfigFactory (RestangularProvider) {
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule, RestangularModule.forRoot(RestangularConfigFactory), ],
   declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [Service]
 })
 export class AppModule { }
