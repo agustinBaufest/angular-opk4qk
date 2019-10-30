@@ -20,10 +20,10 @@ export class AppComponent implements OnInit {
 
   get(){
      let user = new UserApiRequest();
-    user.id = 1;
-    user.name = 'pepe';
-    user.surname = 'rr';
-    user.dni = '3745201';
+    //user.id = 1;
+    //user.name = 'pepe';
+    //user.surname = 'rr';
+    //user.dni = '3745201';
   this.service.get(user).subscribe(response =>{
 
 }, error => console.log(error));

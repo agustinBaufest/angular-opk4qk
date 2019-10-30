@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Restangular } from 'ngx-restangular';
-import {UserApiModel} from './models/userApi.model';
+import {UserApiModel} from './models/userApi.model.ts';
 import {UserApiRequest} from './models/userApiRequest.model';
 
 
