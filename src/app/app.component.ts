@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/delay';
-import {Service} from './service/service.ts';
-import {UserApiRequest} from './models/userApiRequest.model.ts';
+import {Service} from './service/service';
+import {UserApiRequest} from './models/userApiRequest.model';
 
 @Component({
   selector: 'my-app',
@@ -19,7 +19,12 @@ export class AppComponent implements OnInit {
   }
 
   get(){
-  this.service.get().subscribe(response =>{
+     let user = new UserApiRequest();
+    user.id = 1;
+    user.name = 'pepe';
+    user.surname = 'rr';
+    user.dni = '3745201';
+  this.service.get(user).subscribe(response =>{
 
 }, error => console.log(error));
   }
