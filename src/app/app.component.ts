@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/delay';
-import { Restangular } from 'ngx-restangular';
-import { Cuenta } from './cuenta.model';
+import {Service} from './service/service.ts';
+import {UserApiRequest} from './models/userApiRequest.model.ts';
 
 @Component({
   selector: 'my-app',
@@ -11,75 +11,51 @@ import { Cuenta } from './cuenta.model';
 })
 export class AppComponent implements OnInit {
 
-  name = 'Todos';
-  cuentas: Cuenta[] = [];
-  //apiUrl = 'typicode/demo/posts';
-  apiUrl = 'posts';
-  constructor(private restangular: Restangular) {}
+  constructor(
+  private service: Service) {}
   
   ngOnInit() {
 
   }
 
-  OneGet() {
-    const observable1 = this.restangular.one(this.apiUrl).get();
-    const suscripcion1 = observable1.subscribe(data => {
-        this.cuentas = data;
-      });     
+  get(){
+  this.service.get().subscribe(response =>{
+
+}, error => console.log(error));
   }
 
-  OneGetList() {
-    const observable1 = this.restangular.one(this.apiUrl).getList();
-    const suscripcion1 = observable1.subscribe(data => {
-        this.cuentas = data;
-      });     
+  getById(){
+    this.service.getById(1).subscribe(response =>{
+
+    }, error => console.log(error));
   }
 
-  AllGet1() {
-    const observable1 = this.restangular.all(this.apiUrl).get(1);
-    const suscripcion1 = observable1.subscribe(data => {
-        this.cuentas = data;
-      });     
+  post(){
+    let user = new UserApiRequest();
+    user.id = 1;
+    user.name = 'pepe';
+    user.surname = 'rr';
+    user.dni = '3745201';
+    this.service.post(user).subscribe(response =>{
+
+    }, error => console.log(error));
   }
 
-  AllGet2() {
-    const observable1 = this.restangular.one(this.apiUrl, 2).get();
-    const suscripcion1 = observable1.subscribe(data => {
-        this.cuentas = [
-          {id: data.id, title: data.title}
-        ];
-    });     
+  put(){
+    let user = new UserApiRequest();
+    user.id = 1;
+    user.name = 'juan';
+    user.surname = 'gz';
+    user.dni = '3805081';
+  this.service.put(1,user).subscribe(response =>{
+
+    }, error => console.log(error));
   }
 
-  AllGet3() {
-    const observable1 = this.restangular.all(this.apiUrl).get(3);
-    const suscripcion1 = observable1.subscribe(data => {
-        this.cuentas = [
-          {id: data.id, title: data.title}
-        ];
-      });     
-  }
+  delete(){
+  this.service.delete(1).subscribe(response =>{
 
-  AllGetListCon() {
-    const observable1 = this.restangular.all(this.apiUrl).getList();
-    const suscripcion1 = observable1.subscribe(data => {
-          this.cuentas = data;
-      });     
+    }, error => console.log(error));
   }
-  
-  AllGetListSin() {
-    this.ClearData();
-    const observable1 = this.restangular.all(this.apiUrl).getList();
-    const suscripcion1 = observable1.subscribe(data => {
-        data.forEach(x => {
-          this.cuentas.push({id: x.id, title: x.title});
-        })
-      });     
-  }
-
-  ClearData() {
-    this.cuentas = [];
-  }
-
 
 }

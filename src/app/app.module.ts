@@ -9,7 +9,7 @@ import {Service} from './service/service.ts';
 
 export function RestangularConfigFactory (RestangularProvider) {
   //RestangularProvider.setBaseUrl('https://my-json-server.typicode.com');
-  RestangularProvider.setBaseUrl('https://jsonplaceholder.typicode.com');
+  RestangularProvider.setBaseUrl(' https://apiwebpei.azurewebsites.net/');
 }
 
 @NgModule({
