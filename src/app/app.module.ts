@@ -5,12 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import {Service} from './service/service.ts';
+import {Service} from './service/service';
+import {RestangularConfigFactory} from './config/configRestAngular';
 
-export function RestangularConfigFactory (RestangularProvider) {
-  //RestangularProvider.setBaseUrl('https://my-json-server.typicode.com');
-  RestangularProvider.setBaseUrl(' https://apiwebpei.azurewebsites.net/');
-}
+
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule, RestangularModule.forRoot(RestangularConfigFactory), ],
