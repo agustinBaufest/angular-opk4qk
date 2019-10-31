@@ -38,7 +38,6 @@ data: any;
 
   post(){
     let user = new UserApiRequest();
-    user.id = 1;
     user.name = 'pepe';
     user.surname = 'rr';
     user.dni = '3745201';
