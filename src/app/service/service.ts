@@ -11,11 +11,11 @@ export class Service {
 
 
  public get(parametros: UserApiRequest): Observable<UserApiModel[]>{
-   return this.restangular.one('User').getList({userApiRequest: parametros});
+   return this.restangular.one('User').getList();
  }
 
  public getById(id: number): Observable<UserApiModel>{
-   return this.restangular.one('User').get({userId: id});
+   return this.restangular.one('user').get({userId: id});
  }
 
 

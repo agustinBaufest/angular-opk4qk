@@ -11,6 +11,7 @@ import {UserApiRequest} from './models/userApiRequest.model';
 })
 export class AppComponent implements OnInit {
 
+data: any;
   constructor(
   private service: Service) {}
   
@@ -25,13 +26,13 @@ export class AppComponent implements OnInit {
     //user.surname = 'rr';
     //user.dni = '3745201';
   this.service.get(user).subscribe(response =>{
-
-}, error => console.log(error));
+      this.data = response;    
+    }, error => console.log(error));
   }
 
   getById(){
     this.service.getById(1).subscribe(response =>{
-
+      this.data = response;
     }, error => console.log(error));
   }
 
