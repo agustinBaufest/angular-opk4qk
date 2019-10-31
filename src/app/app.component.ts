@@ -21,10 +21,10 @@ data: any;
 
   get(){
      let user = new UserApiRequest();
-    //user.id = 1;
-    //user.name = 'pepe';
-    //user.surname = 'rr';
-    //user.dni = '3745201';
+     user.id = 1;
+     user.name = 'pepe';
+     user.surname = 'rr';
+     user.dni = '3745201';
   this.service.get(user).subscribe(response =>{
       this.data = response;    
     }, error => console.log(error));
@@ -43,7 +43,7 @@ data: any;
     user.surname = 'rr';
     user.dni = '3745201';
     this.service.post(user).subscribe(response =>{
-
+      this.data = response;
     }, error => console.log(error));
   }
 
@@ -54,13 +54,13 @@ data: any;
     user.surname = 'gz';
     user.dni = '3805081';
   this.service.put(1,user).subscribe(response =>{
-
+      this.data = response;
     }, error => console.log(error));
   }
 
   delete(){
   this.service.delete(1).subscribe(response =>{
-
+      this.data = response;
     }, error => console.log(error));
   }
 
