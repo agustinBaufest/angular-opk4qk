@@ -1,3 +1,3 @@
 export function RestangularConfigFactory (RestangularProvider) {
-  RestangularProvider.setBaseUrl(' https://apiwebpei.azurewebsites.net/');
+  RestangularProvider.setBaseUrl('https://apiwebpei.azurewebsites.net/');
 }
