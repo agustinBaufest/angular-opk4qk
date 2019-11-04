@@ -31,7 +31,7 @@ data: any;
   }
 
   getById(){
-    this.service.getById(1).subscribe(response =>{
+    this.service.getById(0).subscribe(response =>{
       this.data = response;
     }, error => console.log(error));
   }
