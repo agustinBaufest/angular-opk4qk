@@ -71,18 +71,18 @@ user: UserApiModel[];
   put(){
     this.limpiar();
     let user = new UserApiRequest();
-    user.id = 0;
-    user.name = 'juan';
+    user.id = 2;
+    user.name = 'jose';
     user.surname = 'gz';
     user.dni = '3805081';
-  this.service.put(0,user).subscribe(response =>{
+  this.service.put(2,user).subscribe(response =>{
      this.respuestaOk = response ? this.msj : "error";
     }, error => console.log(error));
   }
 
   delete(){
     this.limpiar();
-  this.service.delete(1).subscribe(response =>{
+  this.service.delete(3).subscribe(response =>{
     this.respuestaOk = response ? this.msj : "error";
     }, error => console.log(error));
   }
