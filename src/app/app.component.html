@@ -1,11 +1,12 @@
 <hello name="{{ name }}"></hello>
 <p>
   <button (click)="get()">Traer registros</button>
-  <button (click)="getById()">Traer registro uno(1)</button>
+  <button (click)="getById()">Traer un registro</button>
   <button (click)="post()">Guardar registro</button>
-  <button (click)="put()">Actualizar un registro(1)</button>
-  <button (click)="delete()">Eliminar un registro(1)</button>
+  <button (click)="put()">Actualizar un registro</button>
+  <button (click)="delete()">Eliminar un registro</button>
  
 </p>
 
-<pre>{{ data | json }}</pre>
+<pre *ngIf="user">{{ user | json }}</pre>
+<pre *ngIf="respuestaOk">{{ respuestaOk }}</pre>

@@ -11,7 +11,11 @@ export class Service {
 
 
  public get(parametros: UserApiRequest): Observable<UserApiModel[]>{
-   return this.restangular.all('User').getList({dni: parametros.dni, name: parametros.name, surname: parametros.surname});
+   return this.restangular.all('User').getList({
+     dni: parametros.dni,
+     name: parametros.name,
+    surname: parametros.surname
+  });
  }
 
  public getById(id: number): Observable<UserApiModel>{
@@ -19,16 +23,27 @@ export class Service {
  }
 
 
- public post(parametros: UserApiRequest): Observable<any>{
-   //return this.restangular.all('User').post({userApiRequest: parametros});
-   return this.restangular.all('User').post({id: parametros.id, dni: parametros.dni, name: parametros.name, surname: parametros.surname});
+ public post(parametros: UserApiRequest): Observable<boolean>{
+   
+    return this.restangular.all('User').post({
+      id: parametros.id,
+      dni: parametros.dni,
+      name: parametros.name,
+      surname: parametros.surname
+    });
   }
 
- public put(id: number, parametros: UserApiRequest): Observable<any>{
-   return this.restangular.one('User').put({userId: id, userApiRequest: parametros});
+ public put(id: number, parametros: UserApiRequest): Observable<boolean>{
+   return this.restangular.one('User').put({
+     userId: id,
+     id: parametros.id,
+     dni: parametros.dni,
+     name: parametros.name,
+     surname: parametros.surname
+      });
  }
 
-  public delete(id: number): Observable<any>{
+  public delete(id: number): Observable<boolean>{
    return this.restangular.one('User').remove({userId: id});
  }
 }
